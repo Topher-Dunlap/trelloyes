@@ -53,19 +53,19 @@ class App extends Component {
   };
 
   handleDeleteItem = (cardId) => {
-    
+
     const { lists, allCards } = this.state.store;
 
     const newLists = lists.map(list => ({
       ...list,
       cardIds: list.cardIds.filter(id => id !== cardId)
     }));
-
+    console.log(newLists);
     const newCards = omit(allCards, cardId);
     
     this.setState({
       Lists: newLists,
-      CardIds: newCards
+      allCards: newCards
     })
   }
 
