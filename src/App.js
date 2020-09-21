@@ -4,8 +4,11 @@ import List from './List.js';
 import STORE from './STORE'
 
 function omit(obj, keyToOmit) {
-  let {[keyToOmit]: _, ...rest} = obj;
-  return rest;
+  return Object.entries(obj).reduce(
+    (newObj, [key, value]) =>
+        key === keyToOmit ? newObj : {...newObj, [key]: value},
+    {}
+  );
 }
 
 class App extends Component {
@@ -60,12 +63,14 @@ class App extends Component {
       ...list,
       cardIds: list.cardIds.filter(id => id !== cardId)
     }));
+
     console.log(newLists);
+
     const newCards = omit(allCards, cardId);
-    
+  
     this.setState({
       store: {
-        Lists: newLists,
+        lists: newLists,
         allCards: newCards
       }
     })

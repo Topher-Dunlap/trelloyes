@@ -3,7 +3,7 @@ import './Card.css';
 
 function Card(props) {
         return (
-        <div class="Card" key={props.id}>
+        <div className="Card" key={props.id}>
             <button
                 onClick={() => props.onDeleteItem(props.id)}
                 type='button'>

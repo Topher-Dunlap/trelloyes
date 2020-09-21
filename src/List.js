@@ -6,11 +6,11 @@ import './List.css';
 function List(props) {
 
     return (
-    <section class="List">
-        <header class="List-header">
+    <section className="List">
+        <header className="List-header">
           <h2>{props.header}</h2>
         </header>
-        <div class="List-cards">
+        <div className="List-cards">
           {props.cards.map((card) =>
             <Card 
               key={card.id}
@@ -20,7 +20,7 @@ function List(props) {
               onDeleteItem={props.onDeleteItem}
             />
           )}
-            <button type="button" class="List-add-button">
+            <button type="button" className="List-add-button">
               + Add Random Card
             </button>
         </div>
