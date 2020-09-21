@@ -64,15 +64,12 @@ class App extends Component {
       cardIds: list.cardIds.filter(id => id !== cardId)
     }));
 
-    console.log(newLists);
-
     const newCards = omit(allCards, cardId);
+    console.log("newCards", newCards, "cardId", cardId);
   
     this.setState({
-      store: {
         lists: newLists,
         allCards: newCards
-      }
     })
   }
 
